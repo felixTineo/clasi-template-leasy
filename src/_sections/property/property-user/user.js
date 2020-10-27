@@ -126,14 +126,14 @@ export default ()=> {
           <Col xs={12} md={12}>
             <ContactFormButtons>
               <Button primary block>
-                LLamar por teléfono
+                LLamar
               </Button>
             </ContactFormButtons>
           </Col>
           <Col xs={12} md={12}>
             <ContactFormButtons>
               <Button primary block>
-                Enviar whatsapp
+                whatsapp
               </Button>
             </ContactFormButtons>
           </Col>          

@@ -20,6 +20,7 @@ const SubTitle = styled.p`
 
 `
 const Form = styled.form`
+  border: 1px solid #cdcdcd;
   padding: 2rem;
   border-radius: 8px;
   width: 100%;

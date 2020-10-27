@@ -49,7 +49,7 @@ export default ({ description })=> {
     <MainCont>
       <Row>
         <Col xs={12}>
-          <h2 style={{ color: "#fff" }}>Caracteristicas</h2>
+          <h2 style={{ color: "#fff" }}>Características</h2>
           <Row>
             <Col xs={12} md={6}>
               <CharsCont>

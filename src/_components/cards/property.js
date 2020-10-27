@@ -103,7 +103,7 @@ export default ({
       <CardInfo>
         <CardTitleCont>
           <CardTitle>{title}</CardTitle>
-          <CardPrice>UF ${value}</CardPrice>
+          <CardPrice>UF {value}</CardPrice>
         </CardTitleCont>
         <Divider />
         <CardCharacteristics>
