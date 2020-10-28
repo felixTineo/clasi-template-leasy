@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-grid-system';
 import { Select, Input } from '../inputs';
@@ -68,17 +68,17 @@ const SvgCont = styled.svg`
 `
 
 export default ({ block, shadow, horizontal })=> {
-  const [searchBy, setSearchBy] = useState("PROPERTY");
+  const [byCode, setByCode] = useState(false);
   const [filter, setFilter] = useState(false);
   return(
     <Form onSubmit={(e) => e.preventDefault()} block={block} shadow={shadow}>
       <Row gutterWidth={32} align="center">
         <Col xs={12} md={horizontal ? 6 : 12}>
           <FormType>
-            <FormTypeButton onClick={()=> setSearchBy("PROPERTY")} active={searchBy === "PROPERTY"}>
+            <FormTypeButton onClick={()=> setByCode(false)} active={!byCode}>
               Buscar por propiedad
             </FormTypeButton>
-            <FormTypeButton onClick={()=> setSearchBy("CODE")} active={searchBy === "CODE"}>
+            <FormTypeButton onClick={()=> setByCode(true)} active={byCode}>
               Buscar por código
             </FormTypeButton>            
           </FormType>
@@ -86,35 +86,51 @@ export default ({ block, shadow, horizontal })=> {
       </Row>
       <FormInputsCont>
         <Row>
-          <Col xs={12} md={horizontal  ? 3 : 12}>
-            <Select
-              default="Propiedad"
-              options={["opcion 1", "opcion 2", "opcion 3"]}
-              gray
-              vertical={horizontal ? false : true}
-            />
-          </Col>
-          <Col xs={12} md={horizontal  ? 3 : 12}>
-            <Select
-              default="Operación"
-              options={["opcion 1", "opcion 2", "opcion 3"]}
-              gray
-              vertical={horizontal ? false : true}
-            />
-          </Col>    
-          <Col xs={12} md={horizontal  ? 3 : 12}>
-            <Input
-              placeholder="Comuna"
-              gray
-              vertical={horizontal ? false : true}
-            />
-          </Col>        
-          <Col xs={12} md={horizontal  ? 3 : 12}>
-            <Button primary block>
-              Buscar
-              <img src="/icons/search.svg" alt="buscar" style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Col>
+          {
+            byCode
+            ?(
+              <Col xs={12} md={horizontal  ? 9 : 12}>
+                <Input
+                  placeholder="Ingrese el código de la propiedad"
+                  gray
+                  vertical={horizontal ? false : true}
+                />
+              </Col>
+            )
+            :(
+              <Fragment>
+                <Col xs={12} md={horizontal  ? 3 : 12}>
+                  <Select
+                    default="Propiedad"
+                    options={["opcion 1", "opcion 2", "opcion 3"]}
+                    gray
+                    vertical={horizontal ? false : true}
+                  />
+                </Col>
+                <Col xs={12} md={horizontal  ? 3 : 12}>
+                  <Select
+                    default="Operación"
+                    options={["opcion 1", "opcion 2", "opcion 3"]}
+                    gray
+                    vertical={horizontal ? false : true}
+                  />
+                </Col>    
+                <Col xs={12} md={horizontal  ? 3 : 12}>
+                  <Input
+                    placeholder="Comuna"
+                    gray
+                    vertical={horizontal ? false : true}
+                  />
+                </Col>        
+              </Fragment>
+            )
+          }                
+                <Col xs={12} md={horizontal  ? 3 : 12}>
+                  <Button primary block>
+                    Buscar
+                    <img src="/icons/search.svg" alt="buscar" style={{ marginLeft: "1rem" }} />
+                  </Button>
+                </Col>                
           {
             horizontal && (
               <Col xs={12}>
