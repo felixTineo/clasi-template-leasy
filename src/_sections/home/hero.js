@@ -19,7 +19,7 @@ const MainCont = styled.section`
   color: #fff;
   @media(min-width: 768px){
     min-height: 85vh;
-    display: flex;
+    //display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;    
@@ -49,7 +49,7 @@ const FormContainer = styled.div`
   bottom: -25vh;
   left: 0;
   width: 100%;
-  padding: 0 3.5%;
+  //padding: 0 3.5%;
   z-index: 500;
   @media(min-width: 768px){
     position: relative;

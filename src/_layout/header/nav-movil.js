@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { Button, Responsive as ButtonResponsive } from '../../_components/buttons';
 import RateBar from './rate-bar';
 import { Container } from 'react-grid-system';
+import { useQueryParam } from 'gatsby-query-params';
 
 const MainCont = styled.nav`
   padding: 1.5rem 0;
@@ -75,6 +76,7 @@ const SvgIcon = styled.svg`
 
 export default ()=> {
   const [visibleNav, setVisibleNav] = useState(false);
+  const builderId = useQueryParam("builderId");
 
   useEffect(()=> {
     if(visibleNav){
@@ -96,14 +98,14 @@ export default ()=> {
         <NavBar>
           <Container>
           <NavItem>
-            <Link to="/about">
+            <Link to={`/about?builderId=${builderId}`}>
               <NavLink>
                 Nosotros
               </NavLink>
             </Link>
           </NavItem>
           <NavItem>
-            <Link to="/properties">
+            <Link to={`/properties?builderId=${builderId}`}>
               <NavLink>
                 Propiedades
               </NavLink>
@@ -117,7 +119,7 @@ export default ()=> {
             </Link>
 </NavItem>*/}
           <NavItem>
-            <Link to="/contact">
+            <Link to={`/contact?builderId=${builderId}`}>
               <NavLink noMargin>
                 Contacto
               </NavLink>

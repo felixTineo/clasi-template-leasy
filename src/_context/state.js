@@ -11,16 +11,8 @@ export default {
     name: "ClasiHome",
     email: "clasi@clasihome.cl",
     address: "Aquí el texto de tu empres",
-    phone: {
-      countryCode: "+56",
-      areaCode: "2",
-      phoneNumber: "1234 1234"
-    },
-    mobile: {
-      countryCode: "+56",
-      areaCode: "9",
-      phoneNumber: "1234 1234"
-    },      
+    phone: "56 2 1234 1234",
+    mobile: "56 2 1234 1234",
   },
   main:{
     primaryColor: "#9666FF",
@@ -34,7 +26,7 @@ export default {
   home:{
     hero:{
       visible: true,
-      title: "Tenemos propiedades esclusivas pensadas para ti.",
+      title: "Tenemos propiedades exclusivas pensadas para ti.",
       background: "/hero.jpg",
     },
     properties:{
@@ -465,12 +457,13 @@ export default {
     },
     team:{
       visible: true,
-      members:[
+      items:[
         {
           id: uuid(),
           firstName: "Usuario",
           lastName: "1",
-          description: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
+          fullName: "Usuario 1",
+          cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
           avatar: "/team-member-1.jpg",
           email:"usuario1@example.com",
           phone: "+56 9 5555 5555"
@@ -479,7 +472,8 @@ export default {
           id: uuid(),
           firstName: "Usuario",
           lastName: "2",
-          description: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
+          fullName: "Usuario 2",
+          cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
           avatar: "/team-member-2.jpg",
           email:"usuario2@example.com",
           phone: "+56 9 5555 5555"
@@ -488,7 +482,8 @@ export default {
           id: uuid(),
           firstName: "Usuario",
           lastName: "3",
-          description: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
+          fullName: "Usuario 3",
+          cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
           avatar: "/team-member-3.jpg",
           email:"usuario3@example.com",
           phone: "+56 9 5555 5555"
@@ -497,7 +492,8 @@ export default {
           id: uuid(),
           firstName: "Usuario",
           lastName: "4",
-          description: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades.  ",
+          fullName: "Usuario 4",
+          cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades.  ",
           avatar: "/team-member-4.jpg",
           email:"usuario4@example.com",
           phone: "+56 9 5555 5555"
@@ -581,7 +577,7 @@ export default {
     value: "75.000",
     ubication:{
       region: "Rosario",
-      commune: "Casorra Alzamona",
+      commune: "Casorra alzamona",
       location:{
         coordinates: ["0", "0"],
       }

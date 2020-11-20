@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import Context from '../../_context';
 import Link from '../../_components/link';
 import styled from 'styled-components';
+import { useQueryParam } from 'gatsby-query-params';
 
 const Nav = styled.span`
   text-decoration: none;
@@ -21,9 +22,10 @@ const LogoText = styled.span`
 
 export default ({ dark })=> {
   const state = useContext(Context);
+  const builderId = useQueryParam("builderId");
 
   return(
-    <Link to="/">
+    <Link to={`/?builderId=${builderId}`}>
       <Nav title="Inicio">
         {
           state.main.logo.isImage
