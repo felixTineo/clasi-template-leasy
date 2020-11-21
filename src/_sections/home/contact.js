@@ -32,6 +32,7 @@ const ButtonCont = styled.div`
 
 export default ({ noMargin })=> {
   const sectionText = useContext(Context).home.contact.title;
+  const builderId = useContext(Context).builderId;
   return(
     <Fragment>
         <SectionCont noMargin={noMargin}>
@@ -45,7 +46,7 @@ export default ({ noMargin })=> {
               </Col>
               <Col xs={12} md={12}>
                 <ButtonCont>
-                  <Button onClick={()=> navigate("/contact")}>
+                  <Button onClick={()=> navigate(`/contact?builderId=${builderId}`)}>
                     Contáctanos
                   </Button>
                 </ButtonCont>

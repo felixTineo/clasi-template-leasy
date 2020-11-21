@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useReducer } from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-grid-system';
 import { Select, Input } from '../inputs';
@@ -6,6 +6,9 @@ import { Button, IconButton } from '../buttons';
 import { Visible, Hidden } from 'react-grid-system';
 import { LinkButton } from '../../_components/buttons';
 import { hexToHsl } from '../../_util';
+import { useNavigateForm } from '../../_hooks';
+import PROPERTY_TYPE from '../../_constants/PROPERTY_TYPE.json';
+import COMMUNES from '../../_constants/CITIES.json';
 
 const Form = styled.form`
   height: 85%;
@@ -70,6 +73,8 @@ const SvgCont = styled.svg`
 export default ({ block, shadow, horizontal })=> {
   const [byCode, setByCode] = useState(false);
   const [filter, setFilter] = useState(false);
+  const { values, onChange, onFinish } = useNavigateForm({ propertyType: '', operation: '', commune: '' });
+
   return(
     <Form onSubmit={(e) => e.preventDefault()} block={block} shadow={shadow}>
       <Row gutterWidth={32} align="center">
@@ -101,23 +106,35 @@ export default ({ block, shadow, horizontal })=> {
               <Fragment>
                 <Col xs={12} md={horizontal  ? 3 : 12}>
                   <Select
+                    id="propertyType"
+                    onChange={onChange}
+                    value={values.propertyType}
                     default="Propiedad"
-                    options={["opcion 1", "opcion 2", "opcion 3"]}
+                    options={PROPERTY_TYPE}
                     gray
                     vertical={horizontal ? false : true}
+                    capitalize
                   />
                 </Col>
                 <Col xs={12} md={horizontal  ? 3 : 12}>
                   <Select
+                    id="operation"
+                    onChange={onChange}        
+                    value={values.operation}          
                     default="Operación"
-                    options={["opcion 1", "opcion 2", "opcion 3"]}
+                    options={["VENTA", "ARRIENDO"]}
                     gray
                     vertical={horizontal ? false : true}
+                    capitalize
                   />
                 </Col>    
                 <Col xs={12} md={horizontal  ? 3 : 12}>
-                  <Input
-                    placeholder="Comuna"
+                  <Select
+                    id="commune"
+                    onChange={onChange}
+                    value={values.commune}
+                    default="Comuna"
+                    options={COMMUNES.map(val => val.name)}
                     gray
                     vertical={horizontal ? false : true}
                   />
@@ -126,7 +143,7 @@ export default ({ block, shadow, horizontal })=> {
             )
           }                
                 <Col xs={12} md={horizontal  ? 3 : 12}>
-                  <Button primary block>
+                  <Button primary block onClick={onFinish}>
                     Buscar
                     <img src="/icons/search.svg" alt="buscar" style={{ marginLeft: "1rem" }} />
                   </Button>
@@ -140,7 +157,12 @@ export default ({ block, shadow, horizontal })=> {
                       <Row>
                         <Col md={2}>
                           <Input
+                            id="priceMin"
+                            onChange={onChange}
+                            value={values.priceMin}
                             placeholder="Desde"
+                            type="number"
+                            min={0}
                             gray
                             vertical={false}
                           />                          
@@ -148,31 +170,47 @@ export default ({ block, shadow, horizontal })=> {
                         <p style={{ margin: 0, display: "flex", justifyContent: "center", alignItems: "center" }}>-</p>
                         <Col md={2}>
                           <Input
+                            id="priceMax"
+                            onChange={onChange}
+                            value={values.priceMax}                          
                             placeholder="Hasta"
+                            type="number"
+                            min={0}
                             gray
                             vertical={false}
                           />                          
                         </Col>
                         <Col md={2}>
-                          <Select
-                            default="Dormitorios"
-                            options={["opcion 1", "opcion 2", "opcion 3"]}
+                        <Input
+                            id="bedrooms"
+                            onChange={onChange}
+                            value={values.bedrooms}                        
+                            placeholder="Dormitorios"
+                            type="number"
+                            min={0}
                             gray
                             vertical={false}
-                          />                          
+                          />                         
+                        </Col>
+                        <Col md={2}>
+                        <Input
+                            id="bathrooms"
+                            onChange={onChange}
+                            value={values.bathrooms}                        
+                            placeholder="Baños"
+                            type="number"
+                            min={0}
+                            gray
+                            vertical={false}
+                          />                         
                         </Col>
                         <Col md={2}>
                           <Select
-                            default="Baños"
-                            options={["opcion 1", "opcion 2", "opcion 3"]}
-                            gray
-                            vertical={false}
-                          />                          
-                        </Col>
-                        <Col md={2}>
-                          <Select
+                            id="currency"
+                            onChange={onChange}
+                            value={values.currency}  
                             default="Divisas"
-                            options={["opcion 1", "opcion 2", "opcion 3"]}
+                            options={["CLP", "UF"]}
                             gray
                             vertical={false}
                           />                          

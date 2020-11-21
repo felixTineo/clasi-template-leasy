@@ -17,11 +17,13 @@ const PublicObs = styled.p`
   padding-right: 4rem;
 `
 
-export default ()=> {
-  const description = useContext(Context).singleProperty;
+export default ({ data })=> {
+  const noData = useContext(Context).singleProperty;
+  const description = data ? data : noData;
   return(
     <Container>
       <Row align="center" nogutter>
+        {console.log("INTERACTION BUTTONS", description)}
         <Col xs={12} md={6} push={{ md: 6 }}>
           <Row>
             <Col xs={12} md={6}>
@@ -50,7 +52,7 @@ export default ()=> {
         </Col>      
         <Col xs={12} md={6} pull={{ md: 6 }}>
           <PublicObs>
-            {description.publicObservation}              
+            {description.publicObservations}              
           </PublicObs>
         </Col>        
       </Row>

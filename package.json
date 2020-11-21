@@ -14,6 +14,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.3.0",
     "babel-plugin-styled-components": "^1.11.1",
     "framer-motion": "^2.9.4",
     "gatsby": "^2.24.47",
@@ -30,7 +31,8 @@
     "react-image-gallery": "^1.0.8",
     "react-paginate": "^6.5.0",
     "styled-components": "^5.1.1",
-    "swiper": "^6.1.2"
+    "swiper": "^6.1.2",
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "prettier": "2.0.5"

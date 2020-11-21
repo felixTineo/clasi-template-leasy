@@ -9,8 +9,9 @@ import Description from './description';
 const MainCont = styled.div`
   padding-top: 10rem;
 `
-export default ()=> {
-  const state = useContext(Context).singleProperty;
+export default ({ data })=> {
+  const noData = useContext(Context).singleProperty;
+  const state = data ? data : noData;
   return(
     <MainCont>
       <Container>

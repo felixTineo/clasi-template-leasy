@@ -19,9 +19,11 @@ export default ()=> {
     try{
       const data = await fetch(baseUrl);
       const result = await data.json();
+      console.log("INITIAL DATA", result);
       const propertiesData = await fetch(`https://api.clasihome.com/rest/properties?id=${result.user ? result.user : result.office }&typeId=${result.user ? "user" : "office"}&status=PUBLICADA&limit=6`);
       const propertiesResult = await propertiesData.json();
       result.home.properties.items = propertiesResult.properties;
+      console.log("FINAL DATA", result);
       setQuery({ loading: false, data: new Data(result) });
     }
     catch(e){
