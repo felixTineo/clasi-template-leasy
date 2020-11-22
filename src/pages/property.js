@@ -1,6 +1,5 @@
 import React, { useCallback, useReducer, useEffect } from 'react';
 import Layout from '../_layout';
-import styled from 'styled-components';
 import Hero from '../_sections/property/hero';
 import PropertyUser from '../_sections/property/property-user';
 import Ubication from '../_sections/property/ubication';
@@ -8,6 +7,7 @@ import Properties from '../_sections/home/properties';
 import { Row, Col, Container, Visible } from 'react-grid-system';
 import Contact from '../_sections/property/property-user/user';
 import Interaction from '../_sections/property/interaction-buttons';
+import styled from 'styled-components';
 import { useQueryParam } from 'gatsby-query-params';
 import { urlBuilder } from '../_util';
 import { LoadingOutlined, FrownOutlined } from '@ant-design/icons';
