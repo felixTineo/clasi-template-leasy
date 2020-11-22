@@ -73,7 +73,7 @@ export default ()=> {
       <Hero data={data} />
       <Interaction data={data} />
       <PropertyUser data={data} />
-      <Ubication />
+      <Ubication coordinates={data.ubication.location.coordinates} />
       <Properties noMargin />
       <Visible xs>
         <Container>

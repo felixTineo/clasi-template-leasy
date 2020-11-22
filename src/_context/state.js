@@ -13,6 +13,8 @@ export default {
     address: "Aquí el texto de tu empres",
     phone: "56 2 1234 1234",
     mobile: "56 2 1234 1234",
+    lat: '-70.655265',
+    lng: '-33.410167'
   },
   main:{
     primaryColor: "#9666FF",
@@ -579,7 +581,7 @@ export default {
       region: "Rosario",
       commune: "Casorra alzamona",
       location:{
-        coordinates: ["0", "0"],
+        coordinates: ['-70.655265', '-33.410167'],
       }
     },
     characteristics:[

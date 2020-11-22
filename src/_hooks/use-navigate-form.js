@@ -16,5 +16,5 @@ export default (inputs)=> {
     navigate(url);
   },[params, builderId]);
 
-  return { values: params, onChange, onFinish }
+  return { values: params, onChange, onFinish, setInitial: setParams }
 }

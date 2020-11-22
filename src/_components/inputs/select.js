@@ -56,7 +56,7 @@ export default (props)=> {
         {...props}
       >
         <DefaultOption value="" disabled selected hidden>{props.default}</DefaultOption>
-        <AllOption value="all">Todo</AllOption>
+        <AllOption value="">Todo</AllOption>
         {
           props.options.map((o, index) => <Option value={o} key={uuid()}>{props.capitalize ? capitalize(o): o}</Option>)
         }       

@@ -13,6 +13,8 @@ export default class{
       address: props.address,
       phone: props.phone,
       mobile: props.movil,
+      lat: props.lat ?  props.lat : '0',
+      lng: props.lng ? props.lng : '0',
     };
 
     this.main = {

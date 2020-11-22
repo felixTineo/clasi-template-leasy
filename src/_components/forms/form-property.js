@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useReducer } from 'react';
+import React, { useState, Fragment, useReducer, useEffect } from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-grid-system';
 import { Select, Input } from '../inputs';
@@ -9,6 +9,7 @@ import { hexToHsl } from '../../_util';
 import { useNavigateForm } from '../../_hooks';
 import PROPERTY_TYPE from '../../_constants/PROPERTY_TYPE.json';
 import COMMUNES from '../../_constants/CITIES.json';
+import { getSearchParams } from 'gatsby-query-params';
 
 const Form = styled.form`
   height: 85%;
@@ -73,8 +74,12 @@ const SvgCont = styled.svg`
 export default ({ block, shadow, horizontal })=> {
   const [byCode, setByCode] = useState(false);
   const [filter, setFilter] = useState(false);
-  const { values, onChange, onFinish } = useNavigateForm({ propertyType: '', operation: '', commune: '' });
+  const { values, onChange, onFinish, setInitial } = useNavigateForm({ propertyType: '', operation: '', commune: '' });
+  const params = getSearchParams();
 
+  useEffect(()=>{
+    setInitial(params);
+  },[params])
   return(
     <Form onSubmit={(e) => e.preventDefault()} block={block} shadow={shadow}>
       <Row gutterWidth={32} align="center">
