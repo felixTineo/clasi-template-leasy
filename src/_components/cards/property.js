@@ -29,7 +29,7 @@ const CardCont = styled.div`
 `
 const CardImage = styled.div`
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, .8), transparent 35%), url(${props => props.src});
+  background-image: linear-gradient(rgba(0, 0, 0, .8), transparent 35%), url("${props => props.src}");
   background-position: center;
   background-size: cover;
   background-repeat: none;

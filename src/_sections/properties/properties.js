@@ -140,7 +140,7 @@ export default ()=> {
             <Col xs={12}>
               <NavPaginate>
                 <ReactPaginate
-                  pageCount={data.totalRegistersQuery / 6}
+                  pageCount={data.totalRegistersQuery / 8}
                   marginPagesDisplayed={2}
                   pageRangeDisplayed={4}
                   containerClassName="paginateCont"
@@ -159,7 +159,7 @@ export default ()=> {
               </NavPaginate>
             </Col>
             )
-            }
+          }
         </Row>
       </div>
     </Container>

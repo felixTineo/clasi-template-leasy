@@ -80,6 +80,7 @@ export default ({ block, shadow, horizontal })=> {
   useEffect(()=>{
     setInitial(params);
   },[params])
+  
   return(
     <Form onSubmit={(e) => e.preventDefault()} block={block} shadow={shadow}>
       <Row gutterWidth={32} align="center">

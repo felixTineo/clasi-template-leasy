@@ -1,6 +1,6 @@
 export default (baseUrl, params) => {
   params.status = "PUBLICADA";
-  params.limit = 4;
+  params.limit = 8;
   let i = 0;
   baseUrl = baseUrl + '?';
   for(let key in params){
