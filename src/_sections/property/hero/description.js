@@ -68,11 +68,7 @@ export default ({ description })=> {
               <EnvironmentOutlined />
             </MarkerCont>
             <span>
-              {
-                description.ubication.address
-                ? description.ubication.address
-                :`${description.ubication.region} / ${description.ubication.commune}`
-              }
+              {description.ubication.commune}
             </span>
           </UbicationCont>
         </Col>
